@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÁNH DƯƠNG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="left-to-right">Nguyễn Ánh Dương</h1>
+            <p class="left-to-right">Lập Trình Web</p>
+        </header>
+        <main>
+            <div class="box">
+                <div class="box__child zomm">
+                    ĐẸP TRAI
+                </div>
+                <div class="box__child zomm">
+                    PHONG ĐỘ
+                </div>
+                <div class="box__child zomm">
+                    CHIM TO
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="subFooter left-to-right">
+                MỖI TỘI
+            </div>
+            <div class="subFooter right-to-left">
+                KHÔNG CÓ NY
+            </div>
+        </footer>
+    </div>
+
+    <script>
+       var header = document.querySelector('header');
+       var main = document.querySelector('main');
+       var footer = document.querySelector('footer');
+       var h1 = document.querySelector('h1');
+       var p = document.querySelector('p');
+       var box = document.getElementsByClassName('zomm');
+       var subFooter = document.getElementsByClassName('subFooter');
+        function Animation1(){
+
+            var a =  header.getClientRects()[0];
+            var b =  main.getClientRects()[0];
+            var c =  footer.getClientRects()[0];
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            if(a.top == 0 || a.bottom > 0){
+                h1.classList.add('start');
+                p.classList.add('start');
+            }else{
+                h1.classList.remove('start');
+                p.classList.remove('start');
+            }
+
+            
+            if(b.height > b.top && (b.height/2) < b.bottom){
+               console.log(b.top);
+               console.log(b.bottom);
+               console.log(b.height);
+               for(let i of box){
+                    i.classList.add('start');
+               }
+            }else{
+                for(let i of box){
+                    i.classList.remove('start');
+               }
+            }
+
+
+            if( c.height > c.top && (c.height/2) < c.bottom){
+               for(let i of subFooter){
+                    i.classList.add('start');
+               }
+            }else{
+                for(let i of subFooter){
+                    i.classList.remove('start');
+               }
+            }
+        }
+        window.addEventListener('scroll',Animation1);
+          Animation1();
+    </script>
+</body>
+</html>
